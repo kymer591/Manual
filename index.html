@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio de Manuales</title>
+    <title>Repositorio de Manuales y Propuestas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
         <h1>Repositorio de Manuales y Propuestas</h1>
-        <p>Documentos Académicos y Profesionales</p>
+        <p>Documentos Académicos y Profesionales - Sucre, Bolivia</p>
     </header>
 
     <nav class="tabs-container">
@@ -20,31 +20,55 @@
     </nav>
 
     <main>
+        <!-- DOCUMENTO 1: Manual Academia Carolina -->
         <section id="doc1" class="doc-section active">
             <div class="doc-header">
-                <h2>Manual de Procedimientos Administrativos</h2>
-                <p>Academia Carolina - Sucre, Bolivia</p>
+                <div>
+                    <h2>Manual de Procedimientos Administrativos</h2>
+                    <p>Academia Carolina - Sucre, Bolivia</p>
+                </div>
                 <a href="manual_academia_carolina.pdf" download class="btn-download">⬇️ Descargar PDF</a>
             </div>
-            <iframe src="manual_academia_carolina.pdf" class="pdf-viewer" title="Manual Academia Carolina"></iframe>
+            <iframe 
+                src="web/viewer.html?file=../manual_academia_carolina.pdf" 
+                class="pdf-viewer" 
+                title="Manual Academia Carolina"
+                frameborder="0">
+            </iframe>
         </section>
 
+        <!-- DOCUMENTO 2: Propuesta Ana Picha -->
         <section id="doc2" class="doc-section">
             <div class="doc-header">
-                <h2>Propuesta: Carta de Presentación al Mundo Digital</h2>
-                <p>Ana Lourdes Picha Vallejos - ITARFA</p>
+                <div>
+                    <h2>Propuesta: Carta de Presentación al Mundo Digital</h2>
+                    <p>Ana Lourdes Picha Vallejos - ITARFA</p>
+                </div>
                 <a href="propuesta_ana_picha.pdf" download class="btn-download">⬇️ Descargar PDF</a>
             </div>
-            <iframe src="propuesta_ana_picha.pdf" class="pdf-viewer" title="Propuesta Ana Picha"></iframe>
+            <iframe 
+                src="web/viewer.html?file=../propuesta_ana_picha.pdf" 
+                class="pdf-viewer" 
+                title="Propuesta Ana Picha"
+                frameborder="0">
+            </iframe>
         </section>
 
+        <!-- DOCUMENTO 3: Manual Imagen Profesional -->
         <section id="doc3" class="doc-section">
             <div class="doc-header">
-                <h2>Manual de Imagen Personal y Profesional</h2>
-                <p>Tribunal Departamental de Justicia de Chuquisaca</p>
+                <div>
+                    <h2>Manual de Imagen Personal y Profesional</h2>
+                    <p>Tribunal Departamental de Justicia de Chuquisaca</p>
+                </div>
                 <a href="manual_imagen_profesional.pdf" download class="btn-download">⬇️ Descargar PDF</a>
             </div>
-            <iframe src="manual_imagen_profesional.pdf" class="pdf-viewer" title="Manual Imagen Profesional"></iframe>
+            <iframe 
+                src="web/viewer.html?file=../manual_imagen_profesional.pdf" 
+                class="pdf-viewer" 
+                title="Manual Imagen Profesional"
+                frameborder="0">
+            </iframe>
         </section>
     </main>
 
@@ -59,12 +83,19 @@
 
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
+                    // Remover activo de todos
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     sections.forEach(section => section.classList.remove('active'));
 
+                    // Activar botón clickeado
                     button.classList.add('active');
+
+                    // Mostrar sección correspondiente
                     const targetId = button.getAttribute('data-target');
-                    document.getElementById(targetId).classList.add('active');
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
                 });
             });
         });
